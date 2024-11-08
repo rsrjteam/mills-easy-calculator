@@ -1,0 +1,132 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    margin: 0 auto;
+    max-width: 400px;
+    margin-top: 4%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0px 5px 6px 1px rgb(155 155 155);
+}
+h2 {
+    text-align: center;
+    margin: 5px 0px 20px 0px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #808080;
+    outline-color: #b3b1b1;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border: 0px;
+    border-radius: 10px;
+    font-size: 16px;
+    height: 65px;
+}
+button:hover {
+    background-color: rgb(240, 239, 239);
+}
+.button-section {
+    margin: 10px 0px;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+}
+.result {
+    font-size: 18px;
+    display: none;
+    /* line-height: 1.8; */
+}
+#result{
+    width: 100%;
+}
+.error {
+    font-size: 18px;
+    color: red;
+    /* line-height: 1.8; */
+}
+.result-value {
+    color: green;
+}
+.btn-1, .btn-2, .btn-3, .btn-4, .btn-5, .btn-6, .btn-7, .btn-8, #clearBtn {
+    background-color: rgb(244 244 244);
+    border: 1px solid #cdcbcb;
+    box-shadow: 2px 2px 5px 1px #e0e0e0;
+    color:black;
+}
+#priceBox{
+    display: none;
+    margin-bottom: 10px;
+}
+#calculateButton, #calculateBillButton{
+    padding: 13px 5px;
+    background-color: green;
+}
+#calculateButton:hover, #calculateBillButton:hover{
+    background-color: rgb(2, 114, 2);
+}
+.result-box{
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #fff;
+    min-height: 100px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0px 1px 4px 0px #cfcdcd;
+}
+#default-message{
+    width: 100%;
+    color: rgb(178, 178, 178);
+    display: block;
+}
+#clearBtn{
+    display: none;
+    background-color: #f4f4f4;
+    color: black;
+    width: auto;
+    border: 1px solid #cac9c9;
+    margin-left: 10px;
+}
+#clearBtn:hover{
+    background-color: rgb(240, 239, 239);
+}
+img,a{
+    height: 20px;
+}
+small{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#resultBillAmount{
+    width: 100%;
+}
+/* .bill-value-border{
+    border-left: 1px solid rgb(20, 20, 20);
+    display: block;
+} */
+b{
+    font-size: 25px;
+}
