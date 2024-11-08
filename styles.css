@@ -67,10 +67,10 @@ button:hover {
     color: green;
 }
 .btn-1, .btn-2, .btn-3, .btn-4, .btn-5, .btn-6, .btn-7, .btn-8, #clearBtn {
-    background-color: rgb(244 244 244);
+    background-color: rgb(76 255 220);
     border: 1px solid #cdcbcb;
     box-shadow: 2px 2px 5px 1px #e0e0e0;
-    color:black;
+    color: #000000;
 }
 #priceBox{
     display: none;
@@ -103,14 +103,15 @@ button:hover {
 }
 #clearBtn{
     display: none;
-    background-color: #f4f4f4;
-    color: black;
+    background-color: red;
+    color: rgb(255, 255, 255);
     width: auto;
     border: 1px solid #cac9c9;
     margin-left: 10px;
 }
 #clearBtn:hover{
     background-color: rgb(240, 239, 239);
+    color: #000000;
 }
 img,a{
     height: 20px;
