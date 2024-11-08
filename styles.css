@@ -133,6 +133,7 @@ b{
 
 @media (max-width: 576px) {
     .container {
-        margin: 10px !important;
+        margin: 0px !important;
+        border-radius: 0px !important;
     }
 }
