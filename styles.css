@@ -42,7 +42,7 @@ button {
     height: 65px;
 }
 button:hover {
-    background-color: rgb(240, 239, 239);
+    background-color: rgb(23, 244, 200);
 }
 .button-section {
     margin: 10px 0px;
@@ -85,11 +85,11 @@ button:hover {
 }
 .result-box{
     padding: 10px;
-    border: 1px solid gray;
+    border: 1px solid #cec9c9;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #efefef;
     min-height: 100px;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
     display: flex;
     align-items: center;
     text-align: center;
@@ -101,6 +101,9 @@ button:hover {
     color: rgb(178, 178, 178);
     display: block;
 }
+/* #default-message small{
+    display: inline-block;
+} */
 #clearBtn{
     display: none;
     background-color: red;
@@ -108,10 +111,11 @@ button:hover {
     width: auto;
     border: 1px solid #cac9c9;
     margin-left: 10px;
+    padding: 5px 15px;
 }
 #clearBtn:hover{
-    background-color: rgb(240, 239, 239);
-    color: #000000;
+    background-color: rgb(240, 14, 14);
+    color: #ffffff;
 }
 img,a{
     height: 20px;

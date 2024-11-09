@@ -6,10 +6,11 @@ function showPriceInput(cropType) {
     const errorMessage = document.getElementById('error-message');
     const priceBox = document.getElementById('priceBox');
     const defaultMessage = document.getElementById('default-message');
+    const buttonSection = document.getElementsByClassName('button-section');
 
     // First check if weight is valid
     if (isNaN(weight) || weight <= 0) {
-        errorMessage.textContent = "মামি কত ওজন হলো, সেটা আগে লিখুন, তারপর কাজ করবে।";
+        errorMessage.textContent = "কত ওজন হলো, সেটা আগে লিখুন, তারপর কাজ করবে।";
         document.getElementById('priceInput').style.display = 'none';
         document.getElementById('calculateButton').style.display = 'none';
         document.getElementById('priceBox').style.display = 'none';
@@ -32,35 +33,35 @@ function showPriceInput(cropType) {
 
     // Set the placeholder and value based on the selected crop
     if (cropType === 'paddy') {
-        priceInput.placeholder = '১ কেজি ধানের দাম';
+        // priceInput.placeholder = '১ কেজি ধানের দাম';
         cropName.textContent = 'ধান';
-        priceInput.value = '.65';
+        priceInput.value = '0.65';
     } else if (cropType === 'wheat') {
-        priceInput.placeholder = '১ কেজি গমের দাম';
+        // priceInput.placeholder = '১ কেজি গমের দাম';
         cropName.textContent = 'গম';
         priceInput.value = '5';
     } else if (cropType === 'mustard') {
-        priceInput.placeholder = '১ কেজি সরিষার দাম';
+        // priceInput.placeholder = '১ কেজি সরিষার দাম';
         cropName.textContent = 'সরিষা';
         priceInput.value = '6';
     } else if (cropType === 'rice') {
-        priceInput.placeholder = '১ কেজি চালের দাম';
+        // priceInput.placeholder = '১ কেজি চালের দাম';
         cropName.textContent = 'চাল';
-        priceInput.value = '.9';
+        priceInput.value = '0.90';
     } else if (cropType === 'wetRice') {
-        priceInput.placeholder = '১ কেজি ভেজা চালের দাম';
+        // priceInput.placeholder = '১ কেজি ভেজা চালের দাম';
         cropName.textContent = 'ভেজা_চাল';
         priceInput.value = '5';
     } else if (cropType === 'corn') {
-        priceInput.placeholder = '১ কেজি ভুট্টার দাম';
+        // priceInput.placeholder = '১ কেজি ভুট্টার দাম';
         cropName.textContent = 'ভুট্টা';
         priceInput.value = '5';
     } else if (cropType === 'husk') {
-        priceInput.placeholder = '১ কেজি গুড়ার দাম';
+        // priceInput.placeholder = '১ কেজি গুড়ার দাম';
         cropName.textContent = 'গুড়া';
         priceInput.value = '5';
     } else if (cropType === 'mustardCake') {
-        priceInput.placeholder = '১ কেজি খোলের দাম';
+        // priceInput.placeholder = '১ কেজি খোলের দাম';
         cropName.textContent = 'খোল';
         priceInput.value = '22';
     }
@@ -72,6 +73,8 @@ function showPriceInput(cropType) {
     document.getElementById('calculateButton').style.display = 'block';
     document.getElementById('clearBtn').style.display = 'block';
     defaultMessage.style.display = 'block';
+    buttonSection[0].style.display = 'none';
+    buttonSection[1].style.display = 'none';
 }
 
 // Function to calculate total amount
@@ -91,12 +94,12 @@ function calculate() {
 
     // Validate input fields
     if (isNaN(weight) || weight <= 0) {
-        errorMessage.textContent = "মামি কত ওজন হলো, সেটা আগে লিখুন, তারপর কাজ করবে।";
+        errorMessage.textContent = "কত ওজন হলো, সেটা আগে লিখুন, তারপর কাজ করবে।";
         resultSection.style.display = 'none';
         defaultMessage.style.display = 'none';
         return;
     } else if (isNaN(priceInput) || priceInput <= 0) {
-        errorMessage.textContent = `মামি ১ কেজি ${cropName} এর দামটা আগে লিখুন, তারপর কাজ করবে।`;
+        errorMessage.textContent = `১ কেজি ${cropName} এর দামটা আগে লিখুন, তারপর কাজ করবে।`;
         resultSection.style.display = 'none';
         defaultMessage.style.display = 'none';
         return;
@@ -129,7 +132,7 @@ function calculateBill() {
 
     // Validate input fields
     if (isNaN(billAmount) || billAmount <= 0) {
-        resultBillAmount.innerHTML = "<p style='color:red;'>মামি কত টাকা দিলো, সেটা আগে লিখুন, তারপর কাজ করবে।</p>";
+        resultBillAmount.innerHTML = "<p style='color:red;'>কত টাকা দিলো, সেটা আগে লিখুন, তারপর কাজ করবে।</p>";
         resultBillAmount.style.display = "block";
         result.style.display = "none";
         defaultMessage.style.display = "none";
@@ -139,12 +142,12 @@ function calculateBill() {
     // Bill amount wise message dispay
     if(billAmount > resultValue) {
         const billResult = billAmount - resultValue;
-        resultBillAmount.innerHTML = `<p class='bill-value-border'>মামি ₹ <b style='color:red;'>${billResult}</b> টাকা ফেরত দিন।</p>`;
+        resultBillAmount.innerHTML = `<p class='bill-value-border'>₹ <b style='color:red;'>${billResult}</b> টাকা ফেরত দিন।</p>`;
     } else if (billAmount < resultValue) {
         const billResult = resultValue - billAmount;
-        resultBillAmount.innerHTML = `<p class='bill-value-border'>মামি ₹ <b style='color:blue;'>${billResult}</b> টাকা আরো পাবেন।</p>`;
+        resultBillAmount.innerHTML = `<p class='bill-value-border'>₹ <b style='color:blue;'>${billResult}</b> টাকা আরো পাবেন।</p>`;
     } else if (billAmount == resultValue) {
-        resultBillAmount.innerHTML = `<p class='bill-value-border'>মামি সঠিক টাকা দিয়েছে যেতে দিন</p>`;
+        resultBillAmount.innerHTML = `<p class='bill-value-border'>সঠিক টাকা দিয়েছে যেতে দিন</p>`;
     }
     resultBillAmount.style.display = "block";
     result.style.display = "none";
