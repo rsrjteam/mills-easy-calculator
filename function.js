@@ -61,8 +61,8 @@ function showPriceInput(cropType) {
         cropName.textContent = 'গুড়া';
         priceInput.value = '5';
     } else if (cropType === 'mustardCake') {
-        // priceInput.placeholder = '১ কেজি খোলের দাম';
-        cropName.textContent = 'খোল';
+        // priceInput.placeholder = '১ কেজি খৈলের দাম';
+        cropName.textContent = 'খৈল';
         priceInput.value = '22';
     }
 
@@ -91,6 +91,7 @@ function calculate() {
     const billAmountBox = document.getElementById('billAmountBox');
     const calculateButton = document.getElementById('calculateButton');
     const calculateBillButton = document.getElementById('calculateBillButton');
+    const purchaseBtn = document.getElementsByClassName('purchaseBtn');
 
     // Validate input fields
     if (isNaN(weight) || weight <= 0) {
@@ -117,9 +118,70 @@ function calculate() {
     priceBox.style.display = 'none';
     buttonSection[0].style.display = 'none';
     buttonSection[1].style.display = 'none';
+    buttonSection[2].style.display = 'flex';
     calculateButton.style.display = 'none';
     calculateBillButton.style.display = 'block';
     billAmountBox.style.display = 'block';
+    purchaseBtn[0].style.display = 'block';
+    purchaseBtn[1].style.display = 'block';
+}
+
+// purchase product price display
+function showPurchasePrice(showPurchasePrice) {
+    const customerExchangeProductName = document.getElementById("customerExchangeProductName");
+    const purchaseBtn = document.getElementsByClassName("purchaseBtn");
+    const purchaseInput = document.getElementsByClassName("purchaseInput");
+    const itemPurchaseWeight = parseFloat(document.getElementById('itemPurchaseWeight').value);
+    const itemPurchasePrice = parseFloat(document.getElementById('itemPurchasePrice').value);
+    const billAmount = document.getElementById('billAmount');
+    const errorMessage = document.getElementById('error-message');
+    const defaultMessage = document.getElementById('default-message');
+    const result = document.getElementById('result');
+    const resultBillAmount = document.getElementById('resultBillAmount');
+
+    // Set the placeholder and value based on the selected crop
+    if (showPurchasePrice === 'husk') {
+        customerExchangeProductName.textContent = 'গুড়া_';
+        purchaseInput[1].value = '5';
+        purchaseInput[0].placeholder = 'ওজন';
+        purchaseInput[1].placeholder = 'দাম';
+        purchaseBtn[0].style.display = "none";
+        purchaseBtn[1].style.display = "none";
+        purchaseBtn[2].style.display = "block";
+        purchaseInput[0].style.display = "block";
+        purchaseInput[1].style.display = "block";
+    } else if (showPurchasePrice === 'mustardCake') {
+        customerExchangeProductName.textContent = 'খৈল_';
+        purchaseInput[1].value = '22';
+        purchaseInput[0].placeholder= 'ওজন';
+        purchaseInput[1].placeholder= 'দাম';
+        purchaseBtn[0].style.display = "none";
+        purchaseBtn[1].style.display = "none";
+        purchaseBtn[2].style.display = "block";
+        purchaseInput[0].style.display = "block";
+        purchaseInput[1].style.display = "block";
+    } else if (showPurchasePrice === 'proPurchaseBtn') {
+        // First check if items weignt and price is valid
+        if (isNaN(itemPurchaseWeight) || itemPurchaseWeight <= 0) {
+            errorMessage.style.display = "block";
+            errorMessage.textContent = "কত ওজন হলো, সেটা আগে লিখুন, তারপর কাজ করবে।";
+            defaultMessage.style.display = 'none';
+            result.style.display = 'none';
+            resultBillAmount.style.display = 'none';
+            return;
+        } else if (isNaN(itemPurchasePrice) || itemPurchasePrice <= 0) {
+            errorMessage.style.display = "block";
+            errorMessage.textContent = "কত টাকা দাম, সেটা আগে লিখুন, তারপর কাজ করবে।";
+            defaultMessage.style.display = 'none';
+            result.style.display = 'none';
+            resultBillAmount.style.display = 'none';
+            return;
+        }
+
+        // Calculation for product price and bill amount
+        billAmount.value = itemPurchaseWeight * itemPurchasePrice; // Multiplication product weignt and purchase price
+    }
+
 }
 
 // Function to calculate bill amount
@@ -129,6 +191,7 @@ function calculateBill() {
     const resultBillAmount = document.getElementById('resultBillAmount');
     const result = document.getElementById('result');
     const defaultMessage = document.getElementById('default-message');
+    const errorMessage = document.getElementById('error-message');
 
     // Validate input fields
     if (isNaN(billAmount) || billAmount <= 0) {
@@ -136,6 +199,7 @@ function calculateBill() {
         resultBillAmount.style.display = "block";
         result.style.display = "none";
         defaultMessage.style.display = "none";
+        errorMessage.style.display = "none";
         return;
     }
 
@@ -151,6 +215,7 @@ function calculateBill() {
     }
     resultBillAmount.style.display = "block";
     result.style.display = "none";
+    errorMessage.style.display = "none";
 }
 
 // All clear after click the clear button
@@ -168,11 +233,15 @@ function clearBtn() {
     const billAmountBox = document.getElementById('billAmountBox');
     const billAmount = document.getElementById('billAmount');
     const buttonSection = document.getElementsByClassName('button-section');
-    
+    const purchaseInput = document.getElementsByClassName('purchaseInput');
+    const purchaseBtn = document.getElementsByClassName('purchaseBtn');
+
     // Clear the weight and price input fields
     weight.value = '';
     priceInput.value = '';
     billAmount.value = '';
+    purchaseInput[0].value = '';
+    purchaseInput[1].value = '';
 
     // Clear the crop type and reset messages
     cropName.textContent = '';
@@ -187,6 +256,12 @@ function clearBtn() {
     billAmountBox.style.display = 'none';
     buttonSection[0].style.display = 'flex';
     buttonSection[1].style.display = 'flex';
+    buttonSection[2].style.display = 'none';
+    purchaseInput[0].style.display = 'none';
+    purchaseInput[1].style.display = 'none';
+    purchaseBtn[0].style.display = 'none';
+    purchaseBtn[1].style.display = 'none';
+    purchaseBtn[2].style.display = 'none';
     weight.style.display = 'block';
     weightBox.style.display = 'flex';
 

@@ -136,6 +136,16 @@ b{
     font-size: 25px;
 }
 
+.purchaseInput{
+    display: none;
+}
+
+.purchaseInput, .purchaseBtn{
+    height: auto;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
 @media (max-width: 576px) {
     .container {
         margin-top: 0px !important;

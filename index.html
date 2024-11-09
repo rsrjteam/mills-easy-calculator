@@ -35,7 +35,7 @@
 
         <div id="billAmountBox" style="display: none;">
             <div style="display: flex; align-items: center;">
-                <label for="billAmount" style="margin-right: 10px;">কাস্টমার_দিলো_₹</label>
+                <label for="billAmount" style="margin-right: 10px;">কাস্টমার_<span id="customerExchangeProductName"></span>দিলো_₹</label>
                 <input type="number" id="billAmount" class="priceInput" placeholder="" />
             </div> 
         </div>
@@ -49,8 +49,15 @@
         <div class="button-section">
             <button class="btn-5" type="button" onclick="showPriceInput('wetRice')">ভিজা চাল</button>
             <button class="btn-3" type="button" onclick="showPriceInput('mustard')">সরিষা</button>
-            <button class="btn-7" type="button" onclick="showPriceInput('husk')">গুড়া</button>
-            <button class="btn-8" type="button" onclick="showPriceInput('mustardCake')">খৈল</button>
+            <!-- <button class="btn-7" type="button" onclick="showPriceInput('husk')">গুড়া</button>
+            <button class="btn-8" type="button" onclick="showPriceInput('mustardCake')">খৈল</button> -->
+        </div>
+        <div class="button-section" style="display: none;">
+            <input class="purchaseInput" type="number" id="itemPurchaseWeight" placeholder="" />
+            <input class="purchaseInput" type="number" id="itemPurchasePrice" placeholder="" />
+            <button class="btn-7 purchaseBtn" type="button" onclick="showPurchasePrice('husk')">গুড়া</button>
+            <button class="btn-8 purchaseBtn" type="button" onclick="showPurchasePrice('mustardCake')">খৈল</button>
+            <button class="btn-8 purchaseBtn" style="display: none;" type="button" onclick="showPurchasePrice('proPurchaseBtn')">কিনুন</button>
         </div>
 
         <div style="display: flex; margin-top: 15px;">
