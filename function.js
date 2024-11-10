@@ -16,6 +16,7 @@ function showPriceInput(cropType) {
         document.getElementById('priceBox').style.display = 'none';
         document.getElementById('clearBtn').style.display = 'none';
         defaultMessage.style.display = 'none';
+        errorMessage.style.display = 'block';
         return;
     }
 
@@ -131,6 +132,7 @@ function showPurchasePrice(showPurchasePrice) {
     const customerExchangeProductName = document.getElementById("customerExchangeProductName");
     const purchaseBtn = document.getElementsByClassName("purchaseBtn");
     const purchaseInput = document.getElementsByClassName("purchaseInput");
+    const buttonSection = document.getElementsByClassName("button-section");
     const itemPurchaseWeight = parseFloat(document.getElementById('itemPurchaseWeight').value);
     const itemPurchasePrice = parseFloat(document.getElementById('itemPurchasePrice').value);
     const billAmount = document.getElementById('billAmount');
@@ -138,28 +140,37 @@ function showPurchasePrice(showPurchasePrice) {
     const defaultMessage = document.getElementById('default-message');
     const result = document.getElementById('result');
     const resultBillAmount = document.getElementById('resultBillAmount');
+    const calculateBillButton = document.getElementById('calculateBillButton');
+    const billAmountBox = document.getElementById('billAmountBox');
+    const clearBtn = document.getElementById('clearBtn');
 
     // Set the placeholder and value based on the selected crop
     if (showPurchasePrice === 'husk') {
-        customerExchangeProductName.textContent = 'গুড়া_';
+        customerExchangeProductName.textContent = 'মোট_গুঁড়ার_দাম_₹';
         purchaseInput[1].value = '5';
-        purchaseInput[0].placeholder = 'ওজন';
-        purchaseInput[1].placeholder = 'দাম';
+        purchaseInput[0].placeholder = 'গুঁড়ার ওজন';
+        purchaseInput[1].placeholder = 'গুঁড়ার দাম ₹';
         purchaseBtn[0].style.display = "none";
         purchaseBtn[1].style.display = "none";
         purchaseBtn[2].style.display = "block";
         purchaseInput[0].style.display = "block";
         purchaseInput[1].style.display = "block";
+        calculateBillButton.style.display = "none";
+        billAmountBox.style.display = "none";
+        clearBtn.style.width = "100%";
     } else if (showPurchasePrice === 'mustardCake') {
-        customerExchangeProductName.textContent = 'খৈল_';
+        customerExchangeProductName.textContent = 'মোট_খৈলের_দাম_₹';
         purchaseInput[1].value = '22';
-        purchaseInput[0].placeholder= 'ওজন';
-        purchaseInput[1].placeholder= 'দাম';
+        purchaseInput[0].placeholder= 'খৈলের ওজন';
+        purchaseInput[1].placeholder= 'খৈলের দাম ₹';
         purchaseBtn[0].style.display = "none";
         purchaseBtn[1].style.display = "none";
         purchaseBtn[2].style.display = "block";
         purchaseInput[0].style.display = "block";
         purchaseInput[1].style.display = "block";
+        calculateBillButton.style.display = "none";
+        billAmountBox.style.display = "none";
+        clearBtn.style.width = "100%";
     } else if (showPurchasePrice === 'proPurchaseBtn') {
         // First check if items weignt and price is valid
         if (isNaN(itemPurchaseWeight) || itemPurchaseWeight <= 0) {
@@ -180,6 +191,12 @@ function showPurchasePrice(showPurchasePrice) {
 
         // Calculation for product price and bill amount
         billAmount.value = itemPurchaseWeight * itemPurchasePrice; // Multiplication product weignt and purchase price
+
+        // Button and box hide and show
+        calculateBillButton.style.display = "block";
+        billAmountBox.style.display = "block";
+        buttonSection[2].style.display = "none";
+        clearBtn.style.width = "auto";
     }
 
 }
@@ -235,6 +252,8 @@ function clearBtn() {
     const buttonSection = document.getElementsByClassName('button-section');
     const purchaseInput = document.getElementsByClassName('purchaseInput');
     const purchaseBtn = document.getElementsByClassName('purchaseBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const customerExchangeProductName = document.getElementById('customerExchangeProductName');
 
     // Clear the weight and price input fields
     weight.value = '';
@@ -242,6 +261,7 @@ function clearBtn() {
     billAmount.value = '';
     purchaseInput[0].value = '';
     purchaseInput[1].value = '';
+    customerExchangeProductName.textContent = 'কাস্টমার_টাকা_দিলো_₹';
 
     // Clear the crop type and reset messages
     cropName.textContent = '';
@@ -264,6 +284,7 @@ function clearBtn() {
     purchaseBtn[2].style.display = 'none';
     weight.style.display = 'block';
     weightBox.style.display = 'flex';
+    clearBtn.style.width = 'auto';
 
     // Hide the calculate button and price input field
     document.getElementById('calculateButton').style.display = 'none';
