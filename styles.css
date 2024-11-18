@@ -163,8 +163,10 @@ b{
         padding-top: 20%;
         box-shadow: none;
         border: none;
+        background: unset;
     }
     body{
-        background-color: #f4f4f4;
+        /* background-color: #f4f4f4; */
+        background: linear-gradient(rgba(197, 234, 249, 1), rgba(255, 255, 255, 1));
     }
 }
