@@ -13,8 +13,9 @@ body {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */
     box-shadow: 0px 5px 6px 1px rgb(155 155 155);
+    background: linear-gradient(rgba(197, 234, 249, 1), rgba(255, 255, 255, 1));
 }
 h2 {
     text-align: center;
@@ -87,7 +88,8 @@ button:hover {
     padding: 10px;
     border: 1px solid #cec9c9;
     border-radius: 10px;
-    background-color: #efefef;
+    /* background-color: #efefef; */
+    background-color: #fff;
     min-height: 100px;
     margin-bottom: 13px;
     display: flex;
